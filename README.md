@@ -151,7 +151,7 @@ Candidate C # Interpreted as Candidate C > Candidate A = Candidate B, because im
 Candidate B > Candidate C # Interpreted as Candidate B > Candidate C
 ```
 
-* _Note that ````#/Number of seats:``` parameter is optional_
+* _Note that ```#/Number of seats:``` parameter is optional_
 * _Note the comment at the end of the lines_
 
 
@@ -168,8 +168,47 @@ Candidate C>Candidate B # Vote is untouched. When compute pairwise, Candidate C 
 Candidate B # Vote is valid, but not have any effect on most election method, especially Condorcet methods.
 ```
 
-
 ### Invalid
+
+```yaml
+# My beautiful election
+#/Candidates: Candidate A;Candidate B;Candidate C # On comment
+#/Implicit Ranking   : false
+```
+> Comments are not allowed on parameters lines
+
+```yaml
+# My beautiful election
+#/Candidates: Candidate A;Candidate B;Candidate C
+    #/Implicit Ranking   : false
+```
+> Parameters must start at the begining of the line
+
+
+```yaml
+# My beautiful election
+#/Candidates: Candidate A;Candidate B;Candidate C
+
+Candidate A < Candidate B > Candidate C
+```
+> Vote is invalid: ``<``` is not allowed
+
+```yaml
+# My beautiful election
+#/Candidates: Candidate A;Candidate B;Candidate C
+
+Candidate A > Candidate B > Candidate A
+```
+> Vote is invalid: ```Candidate A``` is present at first and third rank.
+
+```yaml
+# My beautiful election
+#/Candidates: Candidate A;Candidate B;Candidate C
+
+Candidate A > Candidate B > Candidate A  * 8 ^7
+```
+> Vote is invalid: The right order is ```^7 * 8```
+
 
 ## Questions
 
@@ -191,9 +230,9 @@ If needed, the programs ingesting these data can use additional non-standard pro
 | ```*``` Quantifier                                |            V            |
 | ```^``` Weight                                    |            V            |
 | ```\|\|``` Tags on vote                           |            V            |
-| Chained ```^``` weight with ```*``` quantifier    | X <br>_unknown behavior_|
+| Chained ```^``` weight with ```*``` quantifier    |            V            |
 | Parse Candidates directly from votes lines        |            X            |
 | System: Parsing huge files without memory problem |            V            |
 | System: Generate huge file without memory problem |            V            |
-| Comportement: Parse invalid vote (bad format)     | Line should be skipped.<br>Failed on some case. |
+| Behavior: Parse invalid vote (bad format)     | Line should be skipped.<br>Failed on some case. |
 
