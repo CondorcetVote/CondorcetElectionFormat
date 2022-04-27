@@ -14,6 +14,23 @@ This document proposes a new format easy to read and edit by hand. And including
 
 ----------------------------
 
+## Summary
+1. [Recommanded file format](#recommanded-file-format)  
+1. [Format Specifications](#format-specifications)  
+  A. [Structure](#format-specifications)    
+  B. [Standard parameters](#standard-parameters)     
+  C. [Votes Lines](#votes-lines)  
+    * [Tags](#tags)
+    * [Ranking](#ranking)
+    * [Special Instructions](#special-instructions)
+1. [Examples](#examples)  
+   * [Valid](#valid)
+   * [Invalid](#invalid)
+1. [Software Implementations](#software-implementations)  
+
+----------------------------
+
+
 ## Recommanded file format
 
 * Charset **must be** ```UTF8```
@@ -21,7 +38,7 @@ This document proposes a new format easy to read and edit by hand. And including
 * File Extension **should be** ```.cvotes``` in lower case
 * Case sensibility is **required** for Candidate name and votes (including tags) but is **optional** for parameters.
 
-## Format
+## Format Specifications
 
 ```yaml
 # My beautiful election
@@ -82,12 +99,14 @@ Candidate B > Candidate C
 
 ``` (TAGS ||) Ranking (^Weight) (* Quantifier)```
 
-#### Specials Instruction
-* ```*``` is a vote quantifier, it should have one space before and after, it **must be** followed by an integer. This is an optionnal method to aggragate intical votes on one line.
-* ```^``` is a vote weight, it should have one space before none after, it **must be** followed by an integer. This is an optionnal parameter different than quantifier, because saying that this only vote has more importance than default weight _(1)_
+#### Tags
+``` tag 1 , tag2 || Candidate A > Candidate B > Candidate C * 42```
 
-* Weight and quantifier can be chained as follow _(42 differents votes has same ranking and a weight set to 7)_:  
-```Candidate A > Candidate B > Candidate C ^7 * 42```
+* Tags **must** always come first
+* Multiples tags **must** be separated by commas. Space between commas are not necessary. Space are trimmed at the beginning and at the end by the parser. Tags **must** be case-sensitive. 
+* Tags **must be** alphanumerics _(any UTF8 alphabets)_, they can include space. ```>```, ```=```, ```;```, ```,```, ```#``` are strictly prohibited.
+* Tags **should be** optionnal
+
 
 #### Ranking
 * Each vote line **must** have a ranking
@@ -99,20 +118,22 @@ Candidate B > Candidate C
 
 * ```=``` is an equality symbol on a rank. **Should** have space before and after him.
 
-#### Tags
-``` tag 1 , tag2 || Candidate A > Candidate B > Candidate C * 42```
+#### Special Instructions
+* ```*``` is a vote quantifier, it should have one space before and after, it **must be** followed by an integer. This is an optionnal method to aggragate intical votes on one line.
+* ```^``` is a vote weight, it should have one space before none after, it **must be** followed by an integer. This is an optionnal parameter different than quantifier, because saying that this only vote has more importance than default weight _(1)_
 
-* Tags **must** always come first
-* Multiples tags **must** be separated by commas. Space between commas are not necessary. Space are trimmed at the beginning and at the end by the parser. Tags **must** be case-sensitive. 
-* Tags **must be** alphanumerics _(any UTF8 alphabets)_, they can include space. ```>```, ```=```, ```;```, ```,```, ```#``` are strictly prohibited.
+* Weight and quantifier can be chained as follow _(42 differents votes has same ranking and a weight set to 7)_:  
+```Candidate A > Candidate B > Candidate C ^7 * 42```
 
 
 ## Examples
+### Valid
+
+### Invalid
 
 
 
-
-## Implementation
+## Software Implementations
 
 |                      Software =>                  |  [Condorcet PHP](https://github.com/julien-boudry/Condorcet) >= v3.3  |
 |:-------------------------------------------------:|:-----------------------:|
