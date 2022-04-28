@@ -19,7 +19,7 @@ This document proposes a new format easy to read and edit by hand. And including
 
 ## Summary
 1. [Motivation](#motivation)  
-1. [Recommanded file format](#recommanded-file-format)  
+1. [Recommended file format](#recommended-file-format)  
 1. [Format Specifications](#format-specifications)  
   A. [Structure](#format-specifications)    
   B. [Standard parameters](#standard-parameters)     
