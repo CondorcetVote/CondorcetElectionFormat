@@ -64,7 +64,7 @@ Candidate B > Candidate C
 * First block **must be** the ```Parameter Block``` then the ```Votes Block```
 * ```#``` Mark a comment until the end of the line. Comment can be everywhere except on parameter lines.
 * Empty lines can be everywhere
-* ```>``` ```=``` ```;``` ```,``` ```#``` ```/``` are reserved characters and they cannot be used in any values.
+* ```>``` ```=``` ```;``` ```,``` ```#``` ```/``` are reserved characters and they **must not** be used in any values. But can be used in comments.
 
 ### Standard parameters
 
