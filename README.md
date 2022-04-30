@@ -64,6 +64,7 @@ Candidate B > Candidate C
 * First block **must be** the ```Parameter Block``` then the ```Votes Block```
 * ```#``` Mark a comment until the end of the line. Comment can be everywhere except on parameter lines.
 * Empty lines can be everywhere
+* ```>``` ```=``` ```;``` ```,``` ```#``` ```/``` are reserved characters and they cannot be used in any values.
 
 ### Standard parameters
 
@@ -73,7 +74,7 @@ Candidate B > Candidate C
 
 #### ```#/Candidates:```
 * **Description:** List of available candidates for this election. Then, vote lines can include other candidates but they **must be** be ignored.
-* **Format:** Candidate name separated by semicolon. Candidate name **must be** alphanumerics _(any UTF8 alphabets)_ they can include space. ```>```, ```=```, ```;```, ```,```, ```#``` are strictly prohibited.
+* **Format:** Candidate name separated by semicolon. Candidate name **must be** alphanumerics _(any UTF8 alphabets)_.
 * **Optional:** Yes. If parameters are not present, candidates can be parsed directly from votes. But you **should** use this parameter, because it's excluding error (parser implementation, badly formatted vote), and some software can require it.
 * * **Notes:** Candidate names **must** be case-sensitive. And spaces are trimmed at the beginning and the end by the parser.
 * **Example:** ```#/Candidates: Candidate A ; Candidate B ; Candidate C```
@@ -109,7 +110,7 @@ Candidate B > Candidate C
 
 * Tags **must** always come first
 * Multiples tags **must** be separated by commas. Spaces between commas are not necessary. Spaces are trimmed at the beginning and the end by the parser. Tags **must** be case-sensitive. 
-* Tags **must be** alphanumerics _(any UTF8 alphabets)_, they can include space. ```>```, ```=```, ```;```, ```,```, ```#``` are strictly prohibited.
+* Tags **must be** alphanumerics _(any UTF8 alphabets)_, they can include space.
 * Tags **should be** optional
 
 
