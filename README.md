@@ -125,7 +125,7 @@ Candidate B > Candidate C
 * Rank **may** contain candidate(s) who do not take part in this election, then the parser must ignore them and build the right ranking.
 * Same candidate **must not** take part on more than one rank per vote.
 
-* Ranking can have the special value ```/EMPTY/```, this means a blank _(None of The Above)_ ballot. This should not prevent the interpretation of the vote, if the implicit ranking parameter is activated, as a vote of equality between all candidates. This special keyword replace all the ranking, and cannot be used at a rank position. _Look at the invalid examples section_
+* Ranking can have the special value ```/EMPTY_RANKING/```, this means a blank _(None of The Above)_ ballot. This should not prevent the interpretation of the vote, if the implicit ranking parameter is activated, as a vote of equality between all candidates. This special keyword replace all the ranking, and cannot be used at a rank position. _Look at the invalid examples section_
 
 #### Special Instructions
 * ```*``` is a vote quantifier, it should have one space before and after, it **must be** followed by an integer. This is an optional method to aggregate identical votes on one line.
@@ -167,7 +167,7 @@ Candidate B > Candidate C # Interpreted as Candidate B > Candidate C
 # Here are the votes data:
 Candidate A > Candidate B > Candidate C ^7 *2 # Vote weight is disabled, so ^7 is ignored. Two votes with a weight of 1.
 Candidate C>Candidate B # Vote is untouched. When compute pairwise, Candidate C win again Candidate B, no one beats the candidate or achieves a draw.
-/EMPTY/ * 2 # Two blanks (NOTA) votes.
+/EMPTY_RANKING/ * 2 # Two blanks (NOTA) votes.
 Candidate B # Vote is valid but does not have any effect on most election methods, especially Condorcet methods.
 ```
 
@@ -216,9 +216,9 @@ Candidate A > Candidate B > Candidate A  * 8 ^7
 #/Candidates: Candidate A;Candidate B;Candidate C; Candidate D
 #/Implicit Ranking: false
 
-Candidate A > Candidate B > /EMPTY/
+Candidate A > Candidate B > /EMPTY_RANKING/
 ```
-> ```/EMPTY``` keyword cannot be used as a rank. The correct ranking is ```Candidate A > Candidate B``` wich will be interpreted as it if implicit ranking parameter is false, and as ```Candidate A > Candidate B > Candidate C = Candidate D``` if implicit parameter is true.
+> ```/EMPTY_RANKING/``` keyword cannot be used as a rank. The correct ranking is ```Candidate A > Candidate B``` wich will be interpreted as it if implicit ranking parameter is false, and as ```Candidate A > Candidate B > Candidate C = Candidate D``` if implicit parameter is true.
 
 ## Questions
 
@@ -244,8 +244,8 @@ __Does the current format allow for methods without ranks, such as majority judg
 | ```^``` Weight                                      |            V            |
 | ```\|\|``` Tags on vote                             |            V            |
 | Chained ```^``` weight with ```*``` quantifier      |            V            |
-| Generate ```/Empty/``` ranking                      |            V            |
-| Importing ```/Empty/``` ranking                     |            X _Error_    |
+| Generate ```/EMPTY_RANKING/``` ranking              |            V            |
+| Importing ```/EMPTY_RANKING/``` ranking             |            X _Error_    |
 | Parse Candidates directly from votes lines          |            X            |
 | System: Parsing huge files without memory problems  |            V            |
 | System: Generate huge files without memory problems |            V            |
