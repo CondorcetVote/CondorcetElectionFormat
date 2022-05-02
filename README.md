@@ -245,7 +245,7 @@ __Does the current format allow for methods without ranks, such as majority judg
 | ```\|\|``` Tags on vote                             |            V            |
 | Chained ```^``` weight with ```*``` quantifier      |            V            |
 | Generate ```/EMPTY_RANKING/``` ranking              |            V            |
-| Importing ```/EMPTY_RANKING/``` ranking             |            X _Error_    |
+| Importing ```/EMPTY_RANKING/``` ranking             |            V            |
 | Parse Candidates directly from votes lines          |            X            |
 | System: Parsing huge files without memory problems  |            V            |
 | System: Generate huge files without memory problems |            V            |
