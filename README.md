@@ -233,21 +233,21 @@ __Does the current format allow for methods without ranks, such as majority judg
 
 |                      Software =>                  |  [Condorcet PHP](https://github.com/julien-boudry/Condorcet) >= v3.3  |
 |:-------------------------------------------------:|:-----------------------:|
-| Read Condorcet format file or string                |            V            |
-| Generate Condorcet format file or string            |            V            |
-| ```#/``` Parameters: Candidates                     |            V            |
-| ```#/``` Parameter: Number of Seats                 |            V            |
-| ```#/``` Parameter: Implicit Ranking                |            V            |
-| ```#/``` Parameter: Weight Allowed                  |            V            |
-| ```#``` Comments                                    |            V            |
-| ```*``` Quantifier                                  |            V            |
-| ```^``` Weight                                      |            V            |
-| ```\|\|``` Tags on vote                             |            V            |
-| Chained ```^``` weight with ```*``` quantifier      |            V            |
-| Generate ```/EMPTY_RANKING/``` ranking              |            V            |
-| Importing ```/EMPTY_RANKING/``` ranking             |            V            |
-| Parse Candidates directly from votes lines          |            X            |
-| System: Parsing huge files without memory problems  |            V            |
-| System: Generate huge files without memory problems |            V            |
-| Behavior: Parse invalid vote (bad format)     | Line should be skipped.<br>Failed on some cases. |
+| Read Condorcet format file or string                |            ✓            |
+| Generate Condorcet format file or string            |            ✓            |
+| ```#/``` Parameters: Candidates                     |            ✓            |
+| ```#/``` Parameter: Number of Seats                 |            ✓            |
+| ```#/``` Parameter: Implicit Ranking                |            ✓            |
+| ```#/``` Parameter: Weight Allowed                  |            ✓            |
+| ```#``` Comments                                    |            ✓            |
+| ```*``` Quantifier                                  |            ✓            |
+| ```^``` Weight                                      |            ✓            |
+| ```\|\|``` Tags on vote                             |            ✓            |
+| Chained ```^``` weight with ```*``` quantifier      |            ✓            |
+| Generate ```/EMPTY_RANKING/``` ranking              |            ✓            |
+| Importing ```/EMPTY_RANKING/``` ranking             |            ✓            |
+| Parse Candidates directly from votes lines          |            ✓ <br>_(since V4.0)_    |
+| System: Parsing huge files without memory problems  |            ✓            |
+| System: Generate huge files without memory problems |            ✓            |
+| Behavior: Parse invalid vote (bad format)           | Line should be skipped.<br>Failed on some cases. |
 
