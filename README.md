@@ -80,12 +80,12 @@ Candidate B > Candidate C
 * **Example:** ```#/Candidates: Candidate A ; Candidate B ; Candidate C```
 
 
-#### ```#/Number of Seat:```
+#### ```#/Number of Seats:```
 * **Description:** Parameters to apply to some vote computation methods, especially STV or others proportionals methods.
 * **Format:** integer
 * **Optional:** Yes. 
 * **Default Value:** 100. 
-* **Example:** ```#/Number of Seat: 42```
+* **Example:** ```#/Number of Seats: 42```
 
 #### ```#/Implicit Ranking:```
 * **Description:** If lacking candidates on a vote. They are implicitly added ton a new last rank.
@@ -236,7 +236,7 @@ __Does the current format allow for methods without ranks, such as majority judg
 | Read Condorcet format file or string                |            V            |
 | Generate Condorcet format file or string            |            V            |
 | ```#/``` Parameters: Candidates                     |            V            |
-| ```#/``` Parameter: Number of Seat                  |            V            |
+| ```#/``` Parameter: Number of Seats                 |            V            |
 | ```#/``` Parameter: Implicit Ranking                |            V            |
 | ```#/``` Parameter: Weight Allowed                  |            V            |
 | ```#``` Comments                                    |            V            |
