@@ -246,7 +246,7 @@ __Does the current format allow for methods without ranks, such as majority judg
 | ```#/``` Parameters: Candidates                     |            ✓            |
 | ```#/``` Parameter: Number of Seats                 |            ✓            |
 | ```#/``` Parameter: Implicit Ranking                |            ✓            |
-| ```#/``` Parameter: Voting Methods                  |            ✖            |
+| ```#/``` Parameter: Voting Methods                  |            ✗            |
 | ```#/``` Parameter: Weight Allowed                  |            ✓            |
 | ```#``` Comments                                    |            ✓            |
 | ```*``` Quantifier                                  |            ✓            |
