@@ -88,11 +88,19 @@ Candidate B > Candidate C
 * **Example:** ```#/Number of Seats: 42```
 
 #### ```#/Implicit Ranking:```
-* **Description:** If lacking candidates on a vote. They are implicitly added ton a new last rank.
+* **Description:** If lacking candidates on a vote. They are implicitly added to a new last rank.
 * **Format:** boolean "true" or "false"
 * **Optional:** Yes. 
 * **Default Value:** ```true```.
 * **Example:** ```#/Implicit Ranking: true```
+
+#### ```#/Voting Methods:```
+* **Alias:** ```#/Voting Method:``` (without "s")
+* **Description:** Name of the voting method(s) that should be used, multiples methods can be submitted. The names of the methods are currently non standardized. The actual behavior and interpretation of this value may vary from program to program, or be completely ignored depending on context. This parameter is therefore intended as an indication, and requires reference to the documentation of the ingesting program and his implementations choices. 
+* **Format:** Method(s) name(s) separated by semicolon, space between methods **can be** used, ingestor **must** trim the value.
+* **Optional:** Yes. 
+* **Default Value:** ```nothing```.
+* **Example:** ```Schulze Margin, Ranked Pairs, Minimax```
 
 #### ```#/Weight Allowed:```
 * **Description:** Allowing votes to have a weight _(look at the vote lines section)_. If false, all lines have a weight equal to 1 even if others are specified.
@@ -238,6 +246,7 @@ __Does the current format allow for methods without ranks, such as majority judg
 | ```#/``` Parameters: Candidates                     |            ✓            |
 | ```#/``` Parameter: Number of Seats                 |            ✓            |
 | ```#/``` Parameter: Implicit Ranking                |            ✓            |
+| ```#/``` Parameter: Voting Methods                  |            ✖            |
 | ```#/``` Parameter: Weight Allowed                  |            ✓            |
 | ```#``` Comments                                    |            ✓            |
 | ```*``` Quantifier                                  |            ✓            |
