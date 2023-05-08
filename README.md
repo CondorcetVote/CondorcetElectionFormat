@@ -100,7 +100,7 @@ Candidate B > Candidate C
 * **Format:** Method(s) name(s) separated by semicolon, space between methods **can be** used, ingestor **must** trim the value.
 * **Optional:** Yes. 
 * **Default Value:** ```nothing```.
-* **Example:** ```Schulze Margin, Ranked Pairs, Minimax```
+* **Example:** ```Schulze Margin; Ranked Pairs; Minimax```
 
 #### ```#/Weight Allowed:```
 * **Description:** Allowing votes to have a weight _(look at the vote lines section)_. If false, all lines have a weight equal to 1 even if others are specified.
