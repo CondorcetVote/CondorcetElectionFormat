@@ -1,7 +1,7 @@
 # Condorcet Election Format
 **Curent Version:** V1 _(final - 2022-04-27)_
 ----------------------------
-Condorcet Election Format represents an Election, with the candidates and votes data. And relevant parameters to correctly interpret that data. It is specially designed for ranks-based elections like Condorcet methods, STV, or alternative Voting, but can also be used for others like Instant-Runoff.
+Condorcet Election Format represents an Election, with the candidates and votes data. And relevant parameters to correctly interpret that data. It is specially designed for ranks-based elections *(preferential voting)* like Condorcet methods, STV, or alternative Voting, but can also be used for others like Instant-Runoff.
 
 ## Motivation
 
@@ -13,7 +13,7 @@ _Accept some parameters but don't allow tie on a rank. It is difficult to edit f
 * [Debian format](https://www.debian.org/vote/2021/vote_001_tally.txt) 
 _Don't have any parameters. And difficult to read or edit for a human. Specifications are unclear and have changed in time. Only implemented on a Debian-specific program._
 
-This document proposes a new format easy to read and edit by hand. And including many (and extensible) parameters, some of them can be standardized here, some can be proprietary. The votes themselves allow more precision (and particularly tie on a rank) than previous tentatives.
+This document proposes a new format easy to read and edit manually. And including many (and extensible) parameters, some of them can be standardized here, some can be proprietary. The votes themselves allow more precision (and particularly tie on a rank) than previous tentatives.
 
 ----------------------------
 
@@ -69,14 +69,14 @@ Candidate B > Candidate C
 ### Standard parameters
 
 * ```#/``` At the beginning of the line, are parameters (one per line), followed by the parameter name, then ```:``` without space before, then the parameter value _(should have space(s) before it)_
-* Each other non-empty line are vote. Vote lines can are cumulative, one line is a vote and can be combined to line with a quantifier for the same ranking.
-* Parameter **must be** specified before the first vote line.
+* Each other non-empty line are vote. Vote lines are cumulative, one line is a vote and can be combined to line with a quantifier for the same ranking.
+* Parameters **must be** specified before the first vote line.
 
 #### ```#/Candidates:```
 * **Description:** List of available candidates for this election. Then, vote lines can include other candidates but they **must be** be ignored.
 * **Format:** Candidate name separated by semicolon. Candidate name **must be** alphanumerics _(any UTF8 alphabets)_.
 * **Optional:** Yes. If parameters are not present, candidates can be parsed directly from votes. But you **should** use this parameter, because it's excluding error (parser implementation, badly formatted vote), and some software can require it.
-* * **Notes:** Candidate names **must** be case-sensitive. And spaces are trimmed at the beginning and the end by the parser.
+* **Notes:** Candidate names **must** be case-sensitive. And spaces **must** be trimmed at the beginning and the end by the parser.
 * **Example:** ```#/Candidates: Candidate A ; Candidate B ; Candidate C```
 
 
@@ -95,7 +95,7 @@ Candidate B > Candidate C
 * **Example:** ```#/Implicit Ranking: true```
 
 #### ```#/Voting Methods:```
-* **Alias:** ```#/Voting Method:``` (without "s")
+* **Alias:** ```#/Voting Method:``` *(without "s")*
 * **Description:** Name of the voting method(s) that should be used, multiples methods can be submitted. The names of the methods are currently non standardized. The actual behavior and interpretation of this value may vary from program to program, or be completely ignored depending on context. This parameter is therefore intended as an indication, and requires reference to the documentation of the ingesting program and his implementations choices. 
 * **Format:** Method(s) name(s) separated by semicolon, space between methods **can be** used, ingestor **must** trim the value.
 * **Optional:** Yes. 
@@ -230,7 +230,7 @@ Candidate A > Candidate B > /EMPTY_RANKING/
 
 ## Questions
 
-__Why not include standard parameters specifying how the results are calculated (methods, variants)?__  
+__Why not include required parameters specifying how the results are calculated (methods, variants)?__  
 > The purpose of this format is to represent the data to be inserted and the vital parameters for their correct interpretation. It is then up to the user of the program that ingests them to use it according to his needs and abilities.  
 If needed, the programs ingesting these data can use additional non-standard properties, allowing them to go further.
 
