@@ -90,7 +90,7 @@ Candidate B > Candidate C
 #### ```#/Implicit Ranking:```
 * **Description:** If lacking candidates on a vote. They are implicitly added to a new last rank.
 * **Format:** boolean "true" or "false"
-* **Optional:** Yes. 
+* **Optional:** Yes. It is strongly recommended to specify this parameter, as in some voting methods it can change the results.
 * **Default Value:** ```true```.
 * **Example:** ```#/Implicit Ranking: true```
 
