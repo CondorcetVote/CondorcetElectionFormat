@@ -65,6 +65,7 @@ Candidate B > Candidate C
 * ```#``` Mark a comment until the end of the line. Comment can be everywhere except on parameter lines.
 * Empty lines can be everywhere
 * ```>``` ```=``` ```;``` ```,``` ```#``` ```/``` ```*``` ```^``` are reserved characters and they **must not** be used in any values. But can be used in comments.
+* Forbidden bytes in values. In addition to the reserved characters listed above, the ASCII null byte (\0, U+0000) must not appear anywhere in any value (parameter values, candidate names, tags, comments). A compliant generator MUST reject input containing it; a compliant parser MUST refuse a document containing it.
 
 ### Standard parameters
 
