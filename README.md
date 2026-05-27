@@ -240,24 +240,24 @@ __Does the current format allow for methods without ranks, such as majority judg
 
 ## Software Implementations
 
-|                      Software =>                  |  [Condorcet PHP](https://github.com/julien-boudry/Condorcet) >= v3.3  |
-|:-------------------------------------------------:|:-----------------------:|
-| Read Condorcet format file or string                |            ✓            |
-| Generate Condorcet format file or string            |            ✓            |
-| ```#/``` Parameters: Candidates                     |            ✓            |
-| ```#/``` Parameter: Number of Seats                 |            ✓            |
-| ```#/``` Parameter: Implicit Ranking                |            ✓            |
-| ```#/``` Parameter: Voting Methods                  |            ✗            |
-| ```#/``` Parameter: Weight Allowed                  |            ✓            |
-| ```#``` Comments                                    |            ✓            |
-| ```*``` Quantifier                                  |            ✓            |
-| ```^``` Weight                                      |            ✓            |
-| ```\|\|``` Tags on vote                             |            ✓            |
-| Chained ```^``` weight with ```*``` quantifier      |            ✓            |
-| Generate ```/EMPTY_RANKING/``` ranking              |            ✓            |
-| Importing ```/EMPTY_RANKING/``` ranking             |            ✓            |
-| Parse Candidates directly from votes lines          |            ✓ <br>_(since V4.0)_    |
-| System: Parsing huge files without memory problems  |            ✓            |
-| System: Generate huge files without memory problems |            ✓            |
-| Behavior: Parse invalid vote (bad format)           | Line should be skipped.<br>Failed on some cases. |
+|                      Software =>                  |  [Condorcet PHP](https://github.com/julien-boudry/Condorcet) >= v3.3  |  [CEF Writer](https://github.com/CondorcetVote/CEF-Writer) _(PHP)_  |
+|:-------------------------------------------------:|:-----------------------:|:-----------------------:|
+| Read Condorcet format file or string                |            ✓            |            ✗            |
+| Generate Condorcet format file or string            |            ✓            |            ✓            |
+| ```#/``` Parameters: Candidates                     |            ✓            |            ✓            |
+| ```#/``` Parameter: Number of Seats                 |            ✓            |            ✓            |
+| ```#/``` Parameter: Implicit Ranking                |            ✓            |            ✓            |
+| ```#/``` Parameter: Voting Methods                  |            ✗            |            ✓            |
+| ```#/``` Parameter: Weight Allowed                  |            ✓            |            ✓            |
+| ```#``` Comments                                    |            ✓            |            ✓            |
+| ```*``` Quantifier                                  |            ✓            |            ✓            |
+| ```^``` Weight                                      |            ✓            |            ✓            |
+| ```\|\|``` Tags on vote                             |            ✓            |            ✓            |
+| Chained ```^``` weight with ```*``` quantifier      |            ✓            |            ✓            |
+| Generate ```/EMPTY_RANKING/``` ranking              |            ✓            |            ✓            |
+| Importing ```/EMPTY_RANKING/``` ranking             |            ✓            |            ✗            |
+| Parse Candidates directly from votes lines          |            ✓ <br>_(since V4.0)_    |            ✗            |
+| System: Parsing huge files without memory problems  |            ✓            |            ✗            |
+| System: Generate huge files without memory problems |            ✓            |     ✓ _(streaming)_     |
+| Behavior: Parse invalid vote (bad format)           | Line should be skipped.<br>Failed on some cases. | Throws `CefFormatException` |
 
